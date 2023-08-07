@@ -4,8 +4,10 @@ cd busybox* 2>~/../../dev/null
 
 if [ "$?" -ne 0 ]
 then
-	echo "initrd: directory does not exist"
-	exit
+	echo "initrd: directory does not exist and will be downloaded"
+	wget . https://busybox.net/downloads/busybox-1.35.0.tar.bz2
+	tar -xvf busybox*.tar*
+	rm *.tar*
 fi
 
 make defconfig
