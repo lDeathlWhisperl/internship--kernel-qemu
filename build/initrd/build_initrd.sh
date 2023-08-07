@@ -5,19 +5,18 @@ cd busybox* 2>~/../../dev/null
 if [ "$?" -ne 0 ]
 then
 	echo "initrd: directory does not exist and will be downloaded"
-	wget . https://busybox.net/downloads/busybox-1.35.0.tar.bz2
-	tar -xvf busybox*.tar*
+	wget . https://busybox.net/downloads/busybox-1.36.1.tar.bz2
+	tar -xjvf busybox*.tar*
 	rm *.tar*
- cd busybox*
+	cd busybox*
 fi
 
-make defconfig
-cp busybox ../fs
-cd ../fs
+mkdir ../fs/bin ../fs/dev ../fs/proc ../fs/sys 2>~/../../dev/null
 
-mkdir bin dev proc sys
-cd bin
-mv ../busybox .
+make defconfig
+make LDFLAGS=-static
+cp busybox ../fs/bin
+cd ../fs/bin
 
 for prog in $(./busybox --list)
 do 
