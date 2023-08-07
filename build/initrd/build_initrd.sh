@@ -8,6 +8,7 @@ then
 	wget . https://busybox.net/downloads/busybox-1.35.0.tar.bz2
 	tar -xvf busybox*.tar*
 	rm *.tar*
+ cd busybox*
 fi
 
 make defconfig
