@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd fs/modules
+make clean
+make
+cd ../..
+
 cd busybox* 2>~/../../dev/null
 
 if [ "$?" -ne 0 ]

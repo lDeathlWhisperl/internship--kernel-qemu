@@ -18,6 +18,6 @@ if [ "$?" -ne 0 ]
 then
 	echo 'something went wrong'
 	exit
-
 fi
-cp arch/x86_64/boot/bzImage ../../kernel
+
+cp arch/x86_64/boot/bzImage ../../../kernel

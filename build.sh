@@ -2,10 +2,10 @@
 
 LINUX_DIR=$(pwd)
 
-cd build/initrd/
-./build_initrd.sh
+cd build/kernel
+./build_kernel.sh $1
 
 cd $LINUX_DIR
 
-cd build/kernel
-./build_kernel.sh $1
+cd build/initrd/
+./build_initrd.sh
